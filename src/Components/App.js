@@ -1,25 +1,31 @@
 import React, { useEffect } from 'react';
-import VideoList from './Videos/VideoList';
 import { connect } from 'react-redux';
-import { fetchVideos } from '../actions'
 import PropTypes from 'prop-types';
-import './Reset.css'
+import VideoList from './Videos/VideoList';
+import VideoShow from './Videos/VideoShow';
+import { fetchVideos } from '../actions';
+import './Reset.css';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
 const App = ({ fetchVideos }) => {
-
   useEffect(() => {
     fetchVideos();
   }, [fetchVideos]);
 
   return (
     <div>
-      <VideoList />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={VideoList} />
+          <Route path="/video/:id" exact component={VideoShow} />
+        </Switch>
+      </BrowserRouter>
     </div>
-  )
-}
+  );
+};
 
 App.propTypes = {
-  fetchVideos: PropTypes.func.isRequired
-}
+  fetchVideos: PropTypes.func.isRequired,
+};
 
 export default connect(null, { fetchVideos })(App);

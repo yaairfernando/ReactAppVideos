@@ -1,14 +1,13 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
-import classes from './Styles.module.css'
+import classes from './Styles.module.css';
 
 const VideoItem = ({ video }) => {
-  const { title, thumbnails, description } = video.snippet
-  console.log(video);
+  const { title, thumbnails, description } = video.snippet;
   return (
     <div className={classes.VideoItem}>
       <div className={classes.DivImage}>
-        <img src={thumbnails.medium.url} className={classes.Image} />
+        <img src={thumbnails.medium.url} className={classes.Image} alt="Video Cover" />
       </div>
       <div className={classes.Content}>
         <h2>
@@ -19,11 +18,11 @@ const VideoItem = ({ video }) => {
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 VideoItem.propTypes = {
-  video: PropTypes.object.isRequired
-}
+  video: PropTypes.object.isRequired,
+};
 
 export default VideoItem;
