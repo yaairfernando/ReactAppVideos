@@ -6,10 +6,10 @@ const KEY = 'AIzaSyBiKXHJJBXR7YqnBEsIovHdhHKHqfz8-N4'
 export const fetchVideos = () => async (dispatch) => {
   const response = await youtube.get("/search", {
     params: {
-      q: 'buildings',
+      q: 'cars',
       part: "snippet",
       type: 'video',
-      maxResults: 150,
+      maxResults: 50,
       key: KEY
     }
   });

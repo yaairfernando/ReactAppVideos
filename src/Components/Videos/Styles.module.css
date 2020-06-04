@@ -1,0 +1,59 @@
+.VideoList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 5rem 0;
+}
+
+
+.VideoItem {
+  flex: 0 0 480px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  background: #fff;
+  margin-top: 0;
+  margin-bottom: 120px;
+  -webkit-transition: box-shadow .2s;
+  transition: box-shadow .2s;
+  border-radius: 4px;
+}
+
+.VideoItem:hover {
+  box-shadow: 0 16px 32px 0 rgba(0,0,0,.1);
+}
+
+.VideoItem:hover .DivImage .Image {
+  transform: scale(1);
+  transition: all 0.2s ease-in;
+}
+
+.VideoItem .DivImage {
+  width: 100%;
+  overflow: hidden;
+}
+
+.VideoItem .DivImage .Image {
+  transition: all 0.2s ease-in;
+  width: 100%;
+  transform: scale(1.1);
+  height: 31rem;
+}
+
+.VideoItem .Content {
+  padding: 1rem 0;
+}
+
+.VideoItem .Content .Title {
+  font-size: 2.5rem;
+}
+
+.VideoItem .Content h2,
+.VideoItem .Content .Description {
+  padding: 1rem;
+}
+
+.VideoItem .Content .Description span {
+  font-size: 2rem;
+  color:rgb(179, 179, 179);
+}

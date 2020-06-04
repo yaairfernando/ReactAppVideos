@@ -3,12 +3,13 @@ import VideoList from './Videos/VideoList';
 import { connect } from 'react-redux';
 import { fetchVideos } from '../actions'
 import PropTypes from 'prop-types';
+import './Reset.css'
 
 const App = ({ fetchVideos }) => {
 
   useEffect(() => {
     fetchVideos();
-  }, []);
+  }, [fetchVideos]);
 
   return (
     <div>

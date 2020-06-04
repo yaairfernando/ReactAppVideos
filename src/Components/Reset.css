@@ -1,0 +1,25 @@
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.container-root {
+  display: flex;
+  flex-direction: row;
+  max-width: 126rem;
+  margin: 0 auto;
+  height: 100vh;
+}
