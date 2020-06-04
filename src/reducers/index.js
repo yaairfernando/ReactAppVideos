@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
+import VideosReducer from './VideosReducer';
 
 export default combineReducers({
-  a: () => 123
+  videos: VideosReducer
 })
