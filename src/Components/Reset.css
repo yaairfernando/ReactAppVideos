@@ -26,8 +26,5 @@ body {
 }
 
 #modal-show {
-  height: 100vh;
-  background: red;
-  position: absolute;
-  width: 100%;
+  
 }

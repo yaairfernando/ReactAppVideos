@@ -1,11 +1,15 @@
 import { FETCH_VIDEOS, FILTER_VIDEOS, FETCH_VIDEO } from '../types';
 import youtube from '../api/youtube';
 
-const KEY = 'AIzaSyD9HehTBDCnxFccxxcX2K4qUAXgimurEjY';
+const KEY = 'AIzaSyAFUXOvA3krXYUSIaqRtY1fJ6AVURgD4gw';
 const history = []
 let filterResult;
 let sortedVideos;
+// AIzaSyD9HehTBDCnxFccxxcX2K4qUAXgimurEjY
 // AIzaSyDwRok3RWII228XCbTO0a81piTkswqQfI4
+// AIzaSyD9HehTBDCnxFccxxcX2K4qUAXgimurEjY
+// AIzaSyBiKXHJJBXR7YqnBEsIovHdhHKHqfz8-N4
+// AIzaSyAFUXOvA3krXYUSIaqRtY1fJ6AVURgD4gw
 
 export const fetchVideos = input => async dispatch => {
   const response = await youtube.get('/search', {
