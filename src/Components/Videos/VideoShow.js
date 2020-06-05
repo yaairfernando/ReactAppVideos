@@ -1,16 +1,21 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchVideo } from '../../actions'
-const VideoShow = ({ fetchVideo, match }) => {
+import ShowVideo from '../Modals/ShowVideo';
+
+const VideoShow = ({ fetchVideo, match, video }) => {
   console.log(match)
 
   useEffect(() => {
     fetchVideo(match.params.id)
   }, [fetchVideo])
 
-
+  if (!video) {
+    return null
+  }
+  console.log(video[0]);
   return (
-    <div>VideoShow</div>
+    <ShowVideo video={video[0]}/>
   )
 }
 
