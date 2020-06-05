@@ -1,13 +1,13 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import classes from './Styles.module.css';
-import history from '../../history';
 
 const Filter = ({ video }) => {
+  const history = useHistory();
   const { title, thumbnails, description } = video.snippet;
 
   const onHandleClick = ({id}) => {
-    console.log("jfjfj", id.videoId);
     history.push(`/video/${id.videoId}`);
   }
 

@@ -1,4 +1,4 @@
-import { FETCH_VIDEOS, FILTER_VIDEOS } from '../types';
+import { FETCH_VIDEOS, FILTER_VIDEOS, FETCH_VIDEO } from '../types';
 import youtube from '../api/youtube';
 
 const KEY = 'AIzaSyD9HehTBDCnxFccxxcX2K4qUAXgimurEjY';
@@ -54,6 +54,16 @@ export const filterVideos = (values) => async (dispatch, getState) => {
     payload: [...sortedVideos]
   });
 }
+
+export const fetchVideo = (id) => async (dispatch, getState ) => {
+  let videos = getState().videos
+  let video = videos.filter(f => f.id.videoId === id);
+  dispatch({
+    type: FETCH_VIDEO,
+    payload: video
+  })
+}
+
 
 const filterCount = (values) => {
   if (values.count === 'All') {

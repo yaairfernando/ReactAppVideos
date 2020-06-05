@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchVideo } from '../../actions'
+const VideoShow = ({ fetchVideo, match }) => {
+  console.log(match)
 
-const VideoShow = (props) => {
-  console.log(props)
+  useEffect(() => {
+    fetchVideo(match.params.id)
+  }, [fetchVideo])
+
+
   return (
     <div>VideoShow</div>
   )
 }
 
-export default VideoShow;
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    video: state.videos
+  }
+}
+
+export default connect(mapStateToProps, { fetchVideo })(VideoShow);
