@@ -1,7 +1,10 @@
-import { FETCH_VIDEOS } from '../types';
+import { FETCH_VIDEOS, FILTER_VIDEOS } from '../types';
 import youtube from '../api/youtube';
 
-const KEY = 'AIzaSyBRNH4qiqdzmDDAcK6fhF2kU3ksmhEKPEY';
+const KEY = 'AIzaSyD9HehTBDCnxFccxxcX2K4qUAXgimurEjY';
+const history = []
+let filterResult;
+let sortedVideos;
 // AIzaSyDwRok3RWII228XCbTO0a81piTkswqQfI4
 
 export const fetchVideos = input => async dispatch => {
@@ -26,3 +29,50 @@ export const fetchVideos = input => async dispatch => {
     });
   }
 };
+
+export const filterVideos = (values) => async (dispatch, getState) => {
+  history.push(getState().videos)
+
+  if (values.count !== '' && values.date !== '') {
+    filterCount(values)
+    filterResult = sortVideos(sortedVideos, values.date);
+    dispatch({
+      type: FILTER_VIDEOS,
+      payload: [...filterResult]
+    });
+    return;
+  }
+
+  if (values.date !== '') {
+    sortedVideos = sortVideos(history[history.length-1], values.date);
+  }
+
+  if (values.count !== '') {
+    filterCount(values)
+  }
+
+  dispatch({
+    type: FILTER_VIDEOS,
+    payload: [...sortedVideos]
+  });
+}
+
+const filterCount = (values) => {
+  if (values.count === 'All') {
+    sortedVideos = history[0]
+  } else {
+    sortedVideos = history[0].slice(0, values.count);
+  }
+}
+
+const sortVideos = (videos, order) => {
+  return videos.sort((a,b) => {
+    if (a.snippet.publishedAt < b.snippet.publishedAt) {
+      return order === 'ASC' ? -1 : 1; 
+    }
+    
+    if (a.snippet.publishedAt > b.snippet.publishedAt) {
+      return order === 'ASC' ? 1 : -1; 
+    }
+  })
+}

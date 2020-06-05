@@ -8,8 +8,8 @@ const SearchBar = ({ fetchVideos }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log('SERACH BAR');
     fetchVideos(input);
+    setInput('');
   };
 
   return (

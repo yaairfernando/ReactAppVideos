@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classes from './Styles.module.css';
 
-const VideoItem = ({ video }) => {
+const Filter = ({ video }) => {
   const { title, thumbnails, description } = video.snippet;
   return (
     <div className={classes.VideoItem}>
@@ -21,8 +21,8 @@ const VideoItem = ({ video }) => {
   );
 };
 
-VideoItem.propTypes = {
+Filter.propTypes = {
   video: PropTypes.object.isRequired,
 };
 
-export default VideoItem;
+export default Filter;
