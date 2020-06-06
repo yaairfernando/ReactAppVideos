@@ -1,12 +1,14 @@
 import _ from 'lodash';
 import {
-  BOOKMARK
+  BOOKMARK,
+  DELETE_BOOKMARK
 } from '../types'
 
 export default (state= {}, action) => {
   switch(action.type) {
     case BOOKMARK:
-      return {...state, [action.payload.id]: action.payload}
+      const { id } = action.payload
+      return {...state, [id.bookmarkId]: id}
     case DELETE_BOOKMARK:
       return _.omit(state, action.payload);
     default:

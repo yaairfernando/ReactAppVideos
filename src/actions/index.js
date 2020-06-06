@@ -1,5 +1,6 @@
-import { FETCH_VIDEOS, FILTER_VIDEOS, FETCH_VIDEO } from '../types';
+import { FETCH_VIDEOS, FILTER_VIDEOS, FETCH_VIDEO, BOOKMARK, DELETE_BOOKMARK } from '../types';
 import youtube from '../api/youtube';
+import uuid from 'react-uuid';
 
 const KEY = 'AIzaSyCE45jK76uBIBFgS3dgnSLIvKjyAxSr3sk';
 const history = [];
@@ -91,3 +92,23 @@ export const fetchVideo = id => async (dispatch, getState) => {
     payload: video,
   });
 };
+
+
+export const bookmark = (video) => async (dispatch) => {
+  let id = uuid();
+  console.log(id);
+  video.bookmarkId = id;
+  console.log(video);
+  dispatch({ 
+    type: BOOKMARK,
+    payload: { id: video }
+  })
+}
+
+export const deleteBookmark = (bookmarkId) => async (dispatch, getState) => {
+  let video = getState().bookmarks[bookmarkId]
+  dispatch({
+    type: DELETE_BOOKMARK,
+    payload: video
+  })
+}
