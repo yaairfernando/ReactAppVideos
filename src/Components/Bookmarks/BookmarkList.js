@@ -6,14 +6,12 @@ import classes from '../Styles/Styles.module.css';
 import { deleteBookmark } from '../../actions';
 
 const BookmarkList = ({ bookmarks, deleteBookmark }) => {
-
-  const onDeleteBK = (id) => {
-    console.log("ON delete bk")
-    deleteBookmark(id)
-  }
+  const onDeleteBK = ({ bookmarkId }) => {
+    deleteBookmark(bookmarkId);
+  };
 
   const renderContent = () => bookmarks.map(
-    bookmark => <Filter key={bookmark.id.videoId} video={bookmark} deleteBK={onDeleteBK} />,
+    bookmark => <Filter key={bookmark.id.videoId} video={bookmark} onHandleBookmark={onDeleteBK} />,
   );
 
   return (
@@ -29,7 +27,7 @@ BookmarkList.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  bookmarks: Object.values(state.bookmarks)
+  bookmarks: Object.values(state.bookmarks),
 });
 
 export default connect(mapStateToProps, { deleteBookmark })(BookmarkList);

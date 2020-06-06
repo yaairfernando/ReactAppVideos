@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchVideos } from '../../actions';
 import classes from '../Styles/Styles.module.css';
-import { Link } from 'react-router-dom';
 
 const SearchBar = ({ fetchVideos }) => {
   const [input, setInput] = useState('');
@@ -20,7 +19,6 @@ const SearchBar = ({ fetchVideos }) => {
         Enter your search:
         <input type="text" id="search-bar-input" value={input} onChange={e => setInput(e.target.value)} />
       </label>
-      <Link className={classes.Bookmark} to="/bookmarks">Bookmarks</Link>
     </form>
   );
 };

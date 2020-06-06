@@ -5,15 +5,19 @@ import Filter from './Filter';
 import classes from '../Styles/Styles.module.css';
 import SearchBar from './SearchBar';
 import FormFilter from './FormFilter';
-import { fetchVideos } from '../../actions';
+import { fetchVideos, bookmark } from '../../actions';
 
-const VideoList = ({ videos, fetchVideos }) => {
+const VideoList = ({ videos, fetchVideos, bookmark }) => {
   useEffect(() => {
     fetchVideos();
   }, [fetchVideos]);
 
+  const addBookmark = video => {
+    bookmark(video);
+  };
+
   const renderContent = () => videos.map(
-    video => <Filter key={video.id.videoId} video={video} />,
+    video => <Filter key={video.id.videoId} video={video} onHandleBookmark={addBookmark} />,
   );
 
   return (
@@ -28,10 +32,11 @@ const VideoList = ({ videos, fetchVideos }) => {
 VideoList.propTypes = {
   videos: PropTypes.arrayOf(PropTypes.array).isRequired,
   fetchVideos: PropTypes.func.isRequired,
+  bookmark: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   videos: state.videos,
 });
 
-export default connect(mapStateToProps, { fetchVideos })(VideoList);
+export default connect(mapStateToProps, { fetchVideos, bookmark })(VideoList);

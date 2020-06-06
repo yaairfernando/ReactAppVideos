@@ -4,5 +4,5 @@ import BookmarkReducer from './BookmarkReducer';
 
 export default combineReducers({
   videos: VideosReducer,
-  bookmarks: BookmarkReducer
+  bookmarks: BookmarkReducer,
 });
