@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
 import { filterVideos } from '../../actions';
-import classes from './Styles.module.css';
+import classes from '../Styles/Styles.module.css';
 
 const FormFilter = ({ filterVideos }) => {
   const filterByCount = ['All', '10', '20', '30', '40'];

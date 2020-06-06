@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Filter from './Filter';
-import classes from './Styles.module.css';
+import classes from '../Styles/Styles.module.css';
 import SearchBar from './SearchBar';
 import FormFilter from './FormFilter';
 import { fetchVideos } from '../../actions';

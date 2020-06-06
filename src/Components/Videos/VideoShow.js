@@ -10,7 +10,7 @@ const VideoShow = ({ fetchVideo, match, video }) => {
 
   useEffect(() => {
     fetchVideo(match.params.id);
-  }, [fetchVideo]);
+  }, [fetchVideo, match.params.id]);
 
   return (
     <ShowVideo

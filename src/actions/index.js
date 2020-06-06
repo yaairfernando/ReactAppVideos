@@ -2,7 +2,7 @@ import { FETCH_VIDEOS, FILTER_VIDEOS, FETCH_VIDEO, BOOKMARK, DELETE_BOOKMARK } f
 import youtube from '../api/youtube';
 import uuid from 'react-uuid';
 
-const KEY = 'AIzaSyCE45jK76uBIBFgS3dgnSLIvKjyAxSr3sk';
+const KEY = 'AIzaSyBiKXHJJBXR7YqnBEsIovHdhHKHqfz8-N4';
 const history = [];
 let filterResult;
 let sortedVideos;
@@ -101,14 +101,15 @@ export const bookmark = (video) => async (dispatch) => {
   console.log(video);
   dispatch({ 
     type: BOOKMARK,
-    payload: { id: video }
+    payload: { id: {...video} }
   })
 }
 
 export const deleteBookmark = (bookmarkId) => async (dispatch, getState) => {
+  console.log(bookmarkId);
   let video = getState().bookmarks[bookmarkId]
   dispatch({
     type: DELETE_BOOKMARK,
-    payload: video
+    payload: bookmarkId
   })
 }

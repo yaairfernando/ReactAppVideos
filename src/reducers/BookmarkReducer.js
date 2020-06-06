@@ -10,6 +10,7 @@ export default (state= {}, action) => {
       const { id } = action.payload
       return {...state, [id.bookmarkId]: id}
     case DELETE_BOOKMARK:
+      console.log(action.payload);
       return _.omit(state, action.payload);
     default:
       return state;

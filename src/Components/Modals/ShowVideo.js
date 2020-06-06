@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import classes from '../Videos/Styles.module.css';
+import classes from '../Styles/Styles.module.css';
 
 const ShowVideo = ({ video, onDismiss }) => {
   const { title, description } = video.snippet;
