@@ -4,7 +4,7 @@ import {
 } from '../types';
 import youtube from '../api/youtube';
 
-const KEY = 'AIzaSyDwRok3RWII228XCbTO0a81piTkswqQfI4';
+const KEY = 'AIzaSyCE45jK76uBIBFgS3dgnSLIvKjyAxSr3sk';
 const history = [];
 let filterResult;
 let sortedVideos;
@@ -82,7 +82,7 @@ export const filterVideos = values => async (dispatch, getState) => {
 
   dispatch({
     type: FILTER_VIDEOS,
-    payload: [...sortedVideos],
+    payload: sortedVideos ? [...sortedVideos] : getState().videos,
   });
 };
 

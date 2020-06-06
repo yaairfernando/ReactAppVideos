@@ -52,6 +52,7 @@
 .VideoItem .DivImage {
   width: 100%;
   overflow: hidden;
+  border: none;
 }
 
 .VideoItem .DivImage .Image {
@@ -87,6 +88,8 @@
   transform: translateY(20px);
   transition: all 0.2s ease;
   opacity: 0;
+  border: none;
+  background: transparent;
 }
 
 .VideoItem .Icon svg {
@@ -225,10 +228,13 @@
 
 .ButtonBack {
   border: none;
-  background-color: transparent;
+  background-color: #1396e7;
   font-size: 1.5rem;
   cursor: pointer;
   outline: none;
+  padding: 1rem;
+  border-radius: 4px;
+  color: #fff;
 }
 
 /* FIN SHOW VIDEO MODAL */
