@@ -92,17 +92,26 @@
   color:rgb(179, 179, 179);
 }
 
+.Form {
+  position: relative;
+}
+
 .Form,
 .FilterForm {
   width: 80rem;
   margin: 0 auto;
-  margin-top: 5rem;
+  padding-top: 5rem;
 }
 
-.Form label {
-  font-size: 2rem;
-  padding: 0.5rem;
-  color: #999;
+.Form .Label {
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  color: #9b9b9b;
+  bottom: 0rem;
+  width: 19rem;
+  transition: 0.2s;
+  position: absolute;
+  left: 0;
 }
 
 .Form input {
@@ -112,9 +121,29 @@
   outline: none;
   color: #999;
   font-size: 2.2rem;
-  padding: 1rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 2px solid #9b9b9b;
   outline: none;
+  transition: all 0.2s;
+}
+
+.Form input:focus ~ .Label {
+  position: absolute;
+  bottom: 3.5rem;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #3d3f44;
+  outline: none;
+  font-weight: 700;
+}
+
+.Form input:focus {
+  font-weight: 700;
+  border-bottom: 2px solid #3d3f44;
+}
+
+.Form input::placeholder {
+  color: transparent;
 }
 
 .FilterForm {
@@ -202,5 +231,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 1rem;
+  color: #3d3f44;
   text-decoration: none;
+  margin: 1rem;
 }

@@ -9,7 +9,6 @@ import BookmarkList from './Bookmarks/BookmarkList';
 import BookmarkShow from './Bookmarks/BookmarkShow';
 
 const App = () => (
-  <div>
     <BrowserRouter>
       <Header />
       <Switch>
@@ -19,7 +18,6 @@ const App = () => (
         <Route path="/bookmarks/:id" exact component={BookmarkShow} />
       </Switch>
     </BrowserRouter>
-  </div>
 );
 
 export default App;

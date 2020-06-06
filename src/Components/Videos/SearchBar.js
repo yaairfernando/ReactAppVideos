@@ -15,9 +15,9 @@ const SearchBar = ({ fetchVideos }) => {
 
   return (
     <form onSubmit={e => onSubmit(e)} className={classes.Form}>
-      <label htmlFor="search-bar-input">
+      <input type="text" placeholder="Enter your search"  id="search-bar-input" value={input} onChange={e => setInput(e.target.value)} />
+      <label htmlFor="search-bar-input" className={classes.Label}>
         Enter your search:
-        <input type="text" id="search-bar-input" value={input} onChange={e => setInput(e.target.value)} />
       </label>
     </form>
   );

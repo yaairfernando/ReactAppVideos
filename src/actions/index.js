@@ -4,7 +4,7 @@ import {
 } from '../types';
 import youtube from '../api/youtube';
 
-const KEY = 'AIzaSyBiKXHJJBXR7YqnBEsIovHdhHKHqfz8-N4';
+const KEY = 'AIzaSyDwRok3RWII228XCbTO0a81piTkswqQfI4';
 const history = [];
 let filterResult;
 let sortedVideos;
