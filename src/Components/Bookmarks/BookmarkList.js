@@ -14,11 +14,7 @@ const BookmarkList = ({ bookmarks, deleteBookmark }) => {
     bookmark => <Filter key={bookmark.id.videoId} video={bookmark} onHandleBookmark={onDeleteBK} />,
   );
 
-  return (
-    <>
-      <div className={classes.BookmarkList}>{renderContent()}</div>
-    </>
-  );
+  return <div className={classes.BookmarkList}>{renderContent()}</div>;
 };
 
 BookmarkList.propTypes = {

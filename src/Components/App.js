@@ -9,15 +9,15 @@ import BookmarkList from './Bookmarks/BookmarkList';
 import BookmarkShow from './Bookmarks/BookmarkShow';
 
 const App = () => (
-    <BrowserRouter>
-      <Header />
-      <Switch>
-        <Route path="/" exact component={VideoList} />
-        <Route path="/video/:id" exact component={VideoShow} />
-        <Route path="/bookmarks" exact component={BookmarkList} />
-        <Route path="/bookmarks/:id" exact component={BookmarkShow} />
-      </Switch>
-    </BrowserRouter>
+  <BrowserRouter>
+    <Header />
+    <Switch>
+      <Route path="/" exact component={VideoList} />
+      <Route path="/video/:id" exact component={VideoShow} />
+      <Route path="/bookmarks" exact component={BookmarkList} />
+      <Route path="/bookmarks/:id" exact component={BookmarkShow} />
+    </Switch>
+  </BrowserRouter>
 );
 
 export default App;

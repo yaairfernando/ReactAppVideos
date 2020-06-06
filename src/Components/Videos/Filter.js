@@ -13,11 +13,16 @@ const Filter = ({ video, onHandleBookmark }) => {
   };
 
   return (
-    <button type="button" className={classes.VideoItem}>
-      <div onClick={e => e.stopPropagation()} className={classes.Card}>
-        <div className={classes.DivImage} onClick={() => onHandleClick(video)}>
+    <div className={classes.VideoItem}>
+      <div className={classes.Card}>
+        <button
+          type="button"
+          className={classes.DivImage}
+          onClick={() => onHandleClick(video)}
+          onKeyDown={() => onHandleClick(video)}
+        >
           <img src={thumbnails.medium.url} className={classes.Image} alt="Video Cover" />
-        </div>
+        </button>
         <div className={classes.Content}>
           <h2>
             <span className={classes.Title}>{title}</span>
@@ -26,17 +31,25 @@ const Filter = ({ video, onHandleBookmark }) => {
             <span>{description}</span>
           </div>
         </div>
-        <div className={classes.Icon} onClick={e => onHandleBookmark(video)} onKeyDown={e => onHandleBookmark(video)}>
+        <button
+          type="button"
+          className={classes.Icon}
+          onClick={() => onHandleBookmark(video)}
+          onKeyDown={() => onHandleBookmark(video)}
+        >
           <Icon name="icon-heart" />
-        </div>
+        </button>
       </div>
-    </button>
+    </div>
   );
 };
 
 Filter.propTypes = {
   onHandleBookmark: PropTypes.func.isRequired,
-  video: PropTypes.objectOf(PropTypes.object).isRequired,
+  video: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(Object),
+  ])).isRequired,
 };
 
 export default Filter;

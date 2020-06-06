@@ -30,7 +30,7 @@ const VideoList = ({ videos, fetchVideos, bookmark }) => {
 };
 
 VideoList.propTypes = {
-  videos: PropTypes.arrayOf(PropTypes.array).isRequired,
+  videos: PropTypes.arrayOf(PropTypes.object).isRequired,
   fetchVideos: PropTypes.func.isRequired,
   bookmark: PropTypes.func.isRequired,
 };

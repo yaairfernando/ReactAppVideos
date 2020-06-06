@@ -98,12 +98,11 @@ export const fetchVideo = id => async (dispatch, getState) => {
 
 export const bookmark = video => async dispatch => {
   const id = uuid();
-  console.log(id);
-  video.bookmarkId = id;
-  console.log(video);
+  const bookmark = { ...video };
+  bookmark.bookmarkId = id;
   dispatch({
     type: BOOKMARK,
-    payload: { id: { ...video } },
+    payload: { id: bookmark },
   });
 };
 
