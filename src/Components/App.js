@@ -1,22 +1,19 @@
 import React from 'react';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import VideoList from './Videos/VideoList';
 import VideoShow from './Videos/VideoShow';
 
-import history from '../history';
 import './Reset.css';
-import { Route, Router, Switch } from 'react-router-dom';
 
-const App = () => {
-  return (
-    <div>
-      <Router history={history} >
-        <Switch>
-          <Route path="/" exact component={VideoList} />
-          <Route path="/video/:id" exact component={VideoShow} />
-        </Switch>
-      </Router>
-    </div>
-  );
-};
+const App = () => (
+  <div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={VideoList} />
+        <Route path="/video/:id" exact component={VideoShow} />
+      </Switch>
+    </BrowserRouter>
+  </div>
+);
 
 export default App;

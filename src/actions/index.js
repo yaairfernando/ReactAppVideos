@@ -1,8 +1,8 @@
 import { FETCH_VIDEOS, FILTER_VIDEOS, FETCH_VIDEO } from '../types';
 import youtube from '../api/youtube';
 
-const KEY = 'AIzaSyAFUXOvA3krXYUSIaqRtY1fJ6AVURgD4gw';
-const history = []
+const KEY = 'AIzaSyCE45jK76uBIBFgS3dgnSLIvKjyAxSr3sk';
+const history = [];
 let filterResult;
 let sortedVideos;
 // AIzaSyD9HehTBDCnxFccxxcX2K4qUAXgimurEjY
@@ -10,6 +10,30 @@ let sortedVideos;
 // AIzaSyD9HehTBDCnxFccxxcX2K4qUAXgimurEjY
 // AIzaSyBiKXHJJBXR7YqnBEsIovHdhHKHqfz8-N4
 // AIzaSyAFUXOvA3krXYUSIaqRtY1fJ6AVURgD4gw
+// AIzaSyCE45jK76uBIBFgS3dgnSLIvKjyAxSr3sk
+
+
+const filterCount = values => {
+  const [state] = history;
+  if (values.count === 'All') {
+    sortedVideos = state;
+  } else {
+    sortedVideos = state.slice(0, values.count);
+  }
+};
+
+const sortVideos = (videos, order) => videos.sort((a, b) => {
+  if (a.snippet.publishedAt < b.snippet.publishedAt) {
+    return order === 'ASC' ? -1 : 1;
+  }
+
+  if (a.snippet.publishedAt > b.snippet.publishedAt) {
+    return order === 'ASC' ? 1 : -1;
+  }
+
+  return 0;
+});
+
 
 export const fetchVideos = input => async dispatch => {
   const response = await youtube.get('/search', {
@@ -32,59 +56,38 @@ export const fetchVideos = input => async dispatch => {
   }
 };
 
-export const filterVideos = (values) => async (dispatch, getState) => {
-  history.push(getState().videos)
+export const filterVideos = values => async (dispatch, getState) => {
+  history.push(getState().videos);
 
   if (values.count !== '' && values.date !== '') {
-    filterCount(values)
+    filterCount(values);
     filterResult = sortVideos(sortedVideos, values.date);
     dispatch({
       type: FILTER_VIDEOS,
-      payload: [...filterResult]
+      payload: [...filterResult],
     });
     return;
   }
 
   if (values.date !== '') {
-    sortedVideos = sortVideos(history[history.length-1], values.date);
+    sortedVideos = sortVideos(history[history.length - 1], values.date);
   }
 
   if (values.count !== '') {
-    filterCount(values)
+    filterCount(values);
   }
 
   dispatch({
     type: FILTER_VIDEOS,
-    payload: [...sortedVideos]
+    payload: [...sortedVideos],
   });
-}
+};
 
-export const fetchVideo = (id) => async (dispatch, getState ) => {
-  let videos = getState().videos
-  let video = videos.filter(f => f.id.videoId === id);
+export const fetchVideo = id => async (dispatch, getState) => {
+  const { videos } = getState();
+  const video = videos.filter(f => f.id.videoId === id);
   dispatch({
     type: FETCH_VIDEO,
-    payload: video
-  })
-}
-
-
-const filterCount = (values) => {
-  if (values.count === 'All') {
-    sortedVideos = history[0]
-  } else {
-    sortedVideos = history[0].slice(0, values.count);
-  }
-}
-
-const sortVideos = (videos, order) => {
-  return videos.sort((a,b) => {
-    if (a.snippet.publishedAt < b.snippet.publishedAt) {
-      return order === 'ASC' ? -1 : 1; 
-    }
-    
-    if (a.snippet.publishedAt > b.snippet.publishedAt) {
-      return order === 'ASC' ? 1 : -1; 
-    }
-  })
-}
+    payload: video,
+  });
+};

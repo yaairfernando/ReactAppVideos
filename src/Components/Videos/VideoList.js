@@ -8,7 +8,6 @@ import FormFilter from './FormFilter';
 import { fetchVideos } from '../../actions';
 
 const VideoList = ({ videos, fetchVideos }) => {
-
   useEffect(() => {
     fetchVideos();
   }, [fetchVideos]);
@@ -27,8 +26,8 @@ const VideoList = ({ videos, fetchVideos }) => {
 };
 
 VideoList.propTypes = {
-  videos: PropTypes.array.isRequired,
-  fetchVideos: PropTypes.func.isRequired
+  videos: PropTypes.arrayOf(PropTypes.array).isRequired,
+  fetchVideos: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

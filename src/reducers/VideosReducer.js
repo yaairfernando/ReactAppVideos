@@ -1,7 +1,7 @@
 import {
   FETCH_VIDEOS,
   FILTER_VIDEOS,
-  FETCH_VIDEO
+  FETCH_VIDEO,
 } from '../types';
 
 export default (state = [], action) => {

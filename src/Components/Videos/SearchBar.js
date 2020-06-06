@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { fetchVideos } from '../../actions';
 import classes from './Styles.module.css';
 
@@ -14,10 +15,16 @@ const SearchBar = ({ fetchVideos }) => {
 
   return (
     <form onSubmit={e => onSubmit(e)} className={classes.Form}>
-      <label>Enter your search:</label>
-      <input value={input} onChange={e => setInput(e.target.value)} />
+      <label htmlFor="search-bar-input">
+        Enter your search:
+        <input type="text" id="search-bar-input" value={input} onChange={e => setInput(e.target.value)} />
+      </label>
     </form>
   );
+};
+
+SearchBar.propTypes = {
+  fetchVideos: PropTypes.func.isRequired,
 };
 
 
