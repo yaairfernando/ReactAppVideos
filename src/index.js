@@ -12,7 +12,7 @@ import App from './Components/App';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['videos'],
+  whitelist: ['videos', 'bookmarks'],
 };
 const persistReducers = persistReducer(persistConfig, reducers);
 
