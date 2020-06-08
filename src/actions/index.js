@@ -1,20 +1,18 @@
 import uuid from 'react-uuid';
 import {
-  FETCH_VIDEOS, FILTER_VIDEOS, FETCH_VIDEO, BOOKMARK, DELETE_BOOKMARK,
+  FETCH_VIDEOS,
+  FILTER_VIDEOS,
+  FETCH_VIDEO,
+  BOOKMARK,
+  DELETE_BOOKMARK,
+  SEARCH_VALUE,
 } from '../types';
 import youtube from '../api/youtube';
 
-const KEY = 'AIzaSyCE45jK76uBIBFgS3dgnSLIvKjyAxSr3sk';
+const KEY = process.env.REACT_APP_KEY;
 const history = [];
 let filterResult;
 let sortedVideos;
-// AIzaSyD9HehTBDCnxFccxxcX2K4qUAXgimurEjY
-// AIzaSyDwRok3RWII228XCbTO0a81piTkswqQfI4
-// AIzaSyD9HehTBDCnxFccxxcX2K4qUAXgimurEjY
-// AIzaSyBiKXHJJBXR7YqnBEsIovHdhHKHqfz8-N4
-// AIzaSyAFUXOvA3krXYUSIaqRtY1fJ6AVURgD4gw
-// AIzaSyCE45jK76uBIBFgS3dgnSLIvKjyAxSr3sk
-
 
 const filterCount = values => {
   const [state] = history;
@@ -37,11 +35,10 @@ const sortVideos = (videos, order) => videos.sort((a, b) => {
   return 0;
 });
 
-
 export const fetchVideos = input => async dispatch => {
   const response = await youtube.get('/search', {
     params: {
-      q: input || 'cars',
+      q: input || 'kids',
       part: 'snippet',
       type: 'video',
       maxResults: 50,
@@ -95,7 +92,6 @@ export const fetchVideo = id => async (dispatch, getState) => {
   });
 };
 
-
 export const bookmark = video => async dispatch => {
   const id = uuid();
   const bookmark = { ...video };
@@ -111,4 +107,8 @@ export const deleteBookmark = bookmarkId => async dispatch => {
     type: DELETE_BOOKMARK,
     payload: bookmarkId,
   });
+};
+
+export const setSearchValue = value => async dispatch => {
+  dispatch({ type: SEARCH_VALUE, payload: value });
 };

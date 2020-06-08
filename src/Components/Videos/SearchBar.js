@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchVideos } from '../../actions';
+import { fetchVideos, setSearchValue } from '../../actions';
 import classes from '../Styles/Styles.module.css';
 
-const SearchBar = ({ fetchVideos }) => {
-  const [inputVal, setInput] = useState('');
-
+const SearchBar = ({ fetchVideos, search, setSearchValue }) => {
   const onSubmit = e => {
     e.preventDefault();
-    fetchVideos(inputVal);
-    setInput('');
+    fetchVideos(search);
   };
 
   return (
@@ -18,10 +15,10 @@ const SearchBar = ({ fetchVideos }) => {
       <input
         type="text"
         id="search-bar-input"
-        value={inputVal}
+        value={search}
         required
         placeholder="Enter your search"
-        onChange={e => setInput(e.target.value)}
+        onChange={e => setSearchValue(e.target.value)}
       />
     </form>
   );
@@ -29,6 +26,12 @@ const SearchBar = ({ fetchVideos }) => {
 
 SearchBar.propTypes = {
   fetchVideos: PropTypes.func.isRequired,
+  setSearchValue: PropTypes.func.isRequired,
+  search: PropTypes.string.isRequired,
 };
 
-export default connect(null, { fetchVideos })(SearchBar);
+const mapStateToProps = state => ({
+  search: state.searchValue,
+});
+
+export default connect(mapStateToProps, { fetchVideos, setSearchValue })(SearchBar);

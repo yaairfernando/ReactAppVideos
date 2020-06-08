@@ -22,8 +22,8 @@ const VideoShow = ({ fetchVideo, match, video }) => {
 
 VideoShow.propTypes = {
   fetchVideo: PropTypes.func.isRequired,
-  match: PropTypes.objectOf(PropTypes.object).isRequired,
-  video: PropTypes.arrayOf(PropTypes.array).isRequired,
+  match: PropTypes.objectOf(PropTypes.string).isRequired,
+  video: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapStateToProps = state => ({
