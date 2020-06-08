@@ -7,17 +7,16 @@ import SearchBar from './SearchBar';
 import FormFilter from './FormFilter';
 import { fetchVideos, bookmark } from '../../actions';
 
-const VideoList = ({ videos, fetchVideos, bookmark }) => {
+const VideoList = ({
+  videos, fetchVideos, bookmark, search,
+}) => {
   useEffect(() => {
-    if (!videos) {
-      fetchVideos();
-    }
-  }, []);
+    fetchVideos(search);
+  }, [fetchVideos, search]);
 
   const addBookmark = video => {
     bookmark(video);
   };
-  console.log(process.env.REACT_APP_KEY);
 
   const renderContent = () => videos.map(video => (
     <Filter
@@ -40,10 +39,12 @@ VideoList.propTypes = {
   videos: PropTypes.arrayOf(PropTypes.object).isRequired,
   fetchVideos: PropTypes.func.isRequired,
   bookmark: PropTypes.func.isRequired,
+  search: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   videos: state.videos,
+  search: state.searchValue,
 });
 
 export default connect(mapStateToProps, { fetchVideos, bookmark })(VideoList);

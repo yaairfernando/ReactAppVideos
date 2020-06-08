@@ -3,3 +3,4 @@ export const FETCH_VIDEO = 'FETCH_VIDEO';
 export const FILTER_VIDEOS = 'FILTER_VIDEOS';
 export const BOOKMARK = 'BOOKMARK';
 export const DELETE_BOOKMARK = 'DELETE_BOOKMARK';
+export const SEARCH_VALUE = 'SEARCH_VALUE';

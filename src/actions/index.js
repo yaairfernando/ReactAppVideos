@@ -5,6 +5,7 @@ import {
   FETCH_VIDEO,
   BOOKMARK,
   DELETE_BOOKMARK,
+  SEARCH_VALUE,
 } from '../types';
 import youtube from '../api/youtube';
 
@@ -106,4 +107,8 @@ export const deleteBookmark = bookmarkId => async dispatch => {
     type: DELETE_BOOKMARK,
     payload: bookmarkId,
   });
+};
+
+export const setSearchValue = value => async dispatch => {
+  dispatch({ type: SEARCH_VALUE, payload: value });
 };

@@ -21,6 +21,7 @@ const ShowVideo = ({ video, onDismiss }) => {
             <h2>{title}</h2>
             <p>{description}</p>
           </div>
+
           <button type="button" className={classes.ButtonBack} onClick={onDismiss}>Back</button>
         </div>
       </button>

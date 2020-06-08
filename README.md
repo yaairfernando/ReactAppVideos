@@ -39,7 +39,7 @@
 
 ## About The Project
 
-![Screenshot Image](public/logoRepo.png) 
+![Screenshot Gif](public/intro.gif) 
 
 ### Built With
 The project was developed using the following technologies:
