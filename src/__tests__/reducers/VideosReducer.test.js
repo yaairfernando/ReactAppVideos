@@ -1,5 +1,4 @@
-// eslint-disable-line import/no-unresolved
-import VideosReducer from '../../reducers/VideosReducer'
+import VideosReducer from '../../reducers/VideosReducer';
 
 describe('Videos reducer', () => {
   it('updates the state to be an array ob ojects', () => {
