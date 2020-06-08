@@ -1,24 +1,32 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import Filter from './Filter';
-import classes from '../Styles/Styles.module.css';
-import SearchBar from './SearchBar';
-import FormFilter from './FormFilter';
-import { fetchVideos, bookmark } from '../../actions';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import Filter from "./Filter";
+import classes from "../Styles/Styles.module.css";
+import SearchBar from "./SearchBar";
+import FormFilter from "./FormFilter";
+import { fetchVideos, bookmark } from "../../actions";
 
 const VideoList = ({ videos, fetchVideos, bookmark }) => {
   useEffect(() => {
-    fetchVideos();
-  }, [fetchVideos]);
+    if (!videos) {
+      fetchVideos();
+    }
+  }, []);
 
-  const addBookmark = video => {
+  const addBookmark = (video) => {
     bookmark(video);
   };
+  console.log(process.env.REACT_APP_KEY)
 
-  const renderContent = () => videos.map(
-    video => <Filter key={video.id.videoId} video={video} onHandleBookmark={addBookmark} />,
-  );
+  const renderContent = () =>
+    videos.map((video) => (
+      <Filter
+        key={video.id.videoId}
+        video={video}
+        onHandleBookmark={addBookmark}
+      />
+    ));
 
   return (
     <>
@@ -35,7 +43,7 @@ VideoList.propTypes = {
   bookmark: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   videos: state.videos,
 });
 
