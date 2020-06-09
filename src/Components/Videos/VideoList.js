@@ -26,8 +26,6 @@ const VideoList = ({
     />
   ));
 
-  console.log(videos);
-
   return (
     <>
       <SearchBar />

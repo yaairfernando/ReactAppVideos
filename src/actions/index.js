@@ -102,11 +102,9 @@ export const bookmark = video => {
   };
 };
 
-export const deleteBookmark = bookmarkId => {
-  return {
-    type: DELETE_BOOKMARK,
-    payload: bookmarkId,
-  };
-};
+export const deleteBookmark = bookmarkId => ({
+  type: DELETE_BOOKMARK,
+  payload: bookmarkId,
+});
 
-export const setSearchValue = value => ({ type: SEARCH_VALUE, payload: value })
+export const setSearchValue = value => ({ type: SEARCH_VALUE, payload: value });
