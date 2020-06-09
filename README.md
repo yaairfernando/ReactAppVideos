@@ -28,21 +28,24 @@
 ### Live version [YOUTUBE-API](https://videos-ytb.herokuapp.com/)
 
 ## Table of Contents
-* [About the Project](#about-the-project)
-  * [Built With](#built-with)
-* [Required Installations](#Required-Installations)
-  * [Installing](#Installing)
-  * [Instructions](#Instructions)
-* [Contact](#contact)
-* [Contributing](#Contributing)
-* [Show your support](#Show-your-support)
+
+- [About the Project](#about-the-project)
+  - [Built With](#built-with)
+- [Required Installations](#Required-Installations)
+  - [Installing](#Installing)
+  - [Instructions](#Instructions)
+- [Contact](#contact)
+- [Contributing](#Contributing)
+- [Show your support](#Show-your-support)
 
 ## About The Project
 
-![Screenshot Gif](public/intro.gif) 
+![Screenshot Gif](public/intro.gif)
 
 ### Built With
+
 The project was developed using the following technologies:
+
 - [React](https://es.reactjs.org/)
 - [JSX](https://reactjs.org/docs/introducing-jsx.html)
 - [Styled-Components](https://www.styled-components.com/)
@@ -84,13 +87,19 @@ user@pc:~$ npm run start
 
 Open your browser on [http://localhost:3000](http://localhost:3000)
 
+To run the tests
+
+```
+user@pc:~$ npm run test
+```
+
 ## Contact
 
 👤 **Yair Fernando Facio**
 
 <a href="https://yairfernando67.github.io/Portfolio/" target="_blank">
     
-  ![Screenshot Image](public/logo.jpg) 
+  ![Screenshot Image](public/logo.jpg)
 
 </a>
 
@@ -102,7 +111,7 @@ Open your browser on [http://localhost:3000](http://localhost:3000)
 
 <p align="center">
 
-  Project Link: [https://github.com/YairFernando67/ReactAppVideos](https://github.com/YairFernando67/ReactAppVideos)
+Project Link: [https://github.com/YairFernando67/ReactAppVideos](https://github.com/YairFernando67/ReactAppVideos)
 
 </p>
 
@@ -117,6 +126,7 @@ Feel free to check the [issues page](https://github.com/YairFernando67/ReactAppV
 Give a ⭐️ if you like this project!
 
 <!-- MARKDOWN LINKS & IMAGES -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/YairFernando67/ReactAppVideos.svg?style=flat-square
 [contributors-url]: https://github.com/YairFernando67/ReactAppVideos/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/YairFernando67/ReactAppVideos.svg?style=flat-square
