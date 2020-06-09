@@ -56,7 +56,7 @@ export const fetchVideos = input => async dispatch => {
   }
 };
 
-export const filterVideos = values => async (dispatch, getState) => {
+export const filterVideos = values => (dispatch, getState) => {
   history.push(getState().videos);
 
   if (values.count !== '' && values.date !== '') {
@@ -83,7 +83,7 @@ export const filterVideos = values => async (dispatch, getState) => {
   });
 };
 
-export const fetchVideo = id => async (dispatch, getState) => {
+export const fetchVideo = id => (dispatch, getState) => {
   const { videos } = getState();
   const video = videos.filter(f => f.id.videoId === id);
   dispatch({
@@ -92,23 +92,21 @@ export const fetchVideo = id => async (dispatch, getState) => {
   });
 };
 
-export const bookmark = video => async dispatch => {
+export const bookmark = video => {
   const id = uuid();
   const bookmark = { ...video };
   bookmark.bookmarkId = id;
-  dispatch({
+  return {
     type: BOOKMARK,
     payload: { id: bookmark },
-  });
+  };
 };
 
-export const deleteBookmark = bookmarkId => async dispatch => {
-  dispatch({
+export const deleteBookmark = bookmarkId => {
+  return {
     type: DELETE_BOOKMARK,
     payload: bookmarkId,
-  });
+  };
 };
 
-export const setSearchValue = value => async dispatch => {
-  dispatch({ type: SEARCH_VALUE, payload: value });
-};
+export const setSearchValue = value => ({ type: SEARCH_VALUE, payload: value })
