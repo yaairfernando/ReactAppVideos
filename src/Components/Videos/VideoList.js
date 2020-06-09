@@ -26,13 +26,13 @@ const VideoList = ({
     />
   ));
 
-  console.log(videos);
-
   return (
     <>
       <SearchBar />
       <FormFilter />
-      <div className={classes.VideoList}>{renderContent()}</div>
+      <div className={`video-list-content ${classes.VideoList}`}>
+        {renderContent()}
+      </div>
     </>
   );
 };

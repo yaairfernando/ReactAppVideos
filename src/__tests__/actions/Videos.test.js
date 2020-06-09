@@ -1,35 +1,92 @@
-import * as actions from '../../actions'
-import { FETCH_VIDEOS, FETCH_VIDEO, FILTER_VIDEOS } from '../../types'
-import thunk from 'redux-thunk'
-import fetchMock from 'fetch-mock'
-import configureMockStore from 'redux-mock-store';
+import * as actions from "../../actions";
+import { FETCH_VIDEOS } from "../../types";
+import moxios from "moxios";
+import { testStore } from "../../util";
 
-const middleware = [thunk]
-const mockStore = configureMockStore(middleware);
+describe("Fetch Videos action", () => {
+  beforeEach(() => {
+    moxios.install();
+  });
 
-describe('Video actions', () => {
   afterEach(() => {
-    fetchMock.restore();
-  })
+    moxios.uninstall();
+  });
 
-  it('should return an action with the ', () => {
-    const store = mockStore({ videos: [] })
+  test("store is updated successfully", () => {
+    const expectedState = [
+      {
+        id: {
+          kind: "some text",
+          videoId: "456fd",
+        },
+        snippet: {
+          title: "Title",
+          description: "Description",
+        },
+      },
+    ];
 
-    fetchMock.getOnce('https://www.googleapis.com/youtube/v3/search', {
-      params: {
-        q: 'kids',
-        part: 'snippet',
-        type: 'video',
-        maxResults: 50,
-        key: "AIzaSyAFUXOvA3krXYUSIaqRtY1fJ6AVURgD4gw",
-      }
-    })
+    const store = testStore();
 
-    console.log(store.getState());
-    console.log(store.getActions());
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: expectedState,
+      });
+    });
 
     return store.dispatch(actions.fetchVideos()).then(() => {
-      console.log(store.getActions());
-    })
-  })
-})
+      const newState = store.getState();
+      expect(newState.videos).toBe(expectedState);
+    });
+  });
+});
+
+// describe('Video actions', () => {
+//   it('should return an action with a single video', () => {
+//     const action = [
+//       {
+//         type: FETCH_VIDEO,
+//         payload: [
+//           {
+//             etag: expect.any(String),
+//             id: {
+//               kind: expect.any(String),
+//               videoId: expect.any(String),
+//             },
+//             kind: expect.any(String),
+//             snippet: {
+//               channelId: expect.any(String),
+//               channelTitle: expect.any(String),
+//               description: expect.any(String),
+//               liveBroadcastContent: expect.any(String),
+//               publishTime: expect.any(String),
+//               publishedApp: expect.any(String),
+//               thumbnalis: {
+//                 default: {
+//                   height: expect.any(Number),
+//                   url: expect.any(String),
+//                   width: expect.any(Number),
+//                 },
+//                 high: {
+//                   height: expect.any(Number),
+//                   url: expect.any(String),
+//                   width: expect.any(Number),
+//                 },
+//                 medium: {
+//                   height: expect.any(Number),
+//                   url: expect.any(String),
+//                   width: expect.any(Number),
+//                 },
+//               },
+//               title: expect.any(String),
+//             },
+//           },
+//         ],
+//       },
+//     ];
+
+//     expect(actions.fetchVideo('1')).toEqual(expect.arrayContaining(action));
+//   });
+// });
