@@ -5,10 +5,10 @@ import { middlewares } from "../createStore";
 
 export const findByTestAtrr = (comp, attr) =>
   comp.find(`[data-test='${attr}']`);
-export const checkProps = (comp, expectedProps) =>
+export const validate = (comp, expectedProps) =>
   checkPropTypes(comp.propTypes, expectedProps, "props", comp.name);
 
-export const testStore = (initialState) => {
+export const mockStore = (initialState) => {
   const createStoreWithMiddleware = applyMiddleware(...middlewares)(
     createStore
   );

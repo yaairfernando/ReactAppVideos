@@ -24,8 +24,7 @@ const filterCount = (values) => {
   }
 };
 
-const sortVideos = (videos, order) => {
-  videos.sort((a, b) => {
+const sortVideos = (videos, order) => videos.sort((a, b) => {
     if (a.snippet.publishedAt < b.snippet.publishedAt) {
       return order === "ASC" ? -1 : 1;
     }
@@ -36,7 +35,6 @@ const sortVideos = (videos, order) => {
 
     return 0;
   });
-}
 
 export const fetchVideos = (input) => async (dispatch) => {
   const response = await axios.get(
@@ -63,7 +61,6 @@ export const fetchVideos = (input) => async (dispatch) => {
 };
 
 export const filterVideos = (values) => (dispatch, getState) => {
-  console.log(values);
   history.push(getState().videos);
 
   if (values.count !== "" && values.date !== "") {
