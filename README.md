@@ -25,7 +25,7 @@
 
 </p>
 
-### Live version [YOUTUBE-API](https://videos-ytb.herokuapp.com/)
+### Live version [YOUTUBE-API](https://hardcore-feynman-91c1ef.netlify.app/)
 
 ## Table of Contents
 
