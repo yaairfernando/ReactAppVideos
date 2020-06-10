@@ -1,9 +1,23 @@
 import React from 'react';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import VideoList from './Videos/VideoList';
+import VideoShow from './Videos/VideoShow';
+import Header from './Header/Header';
 
-const App = () => {
-  return (
-    <div>App</div>
-  )
-};
+import './Styles/Reset.css';
+import BookmarkList from './Bookmarks/BookmarkList';
+import BookmarkShow from './Bookmarks/BookmarkShow';
+
+const App = () => (
+  <BrowserRouter>
+    <Header />
+    <Switch>
+      <Route path="/" exact component={VideoList} />
+      <Route path="/videos/:id" exact component={VideoShow} />
+      <Route path="/bookmarks" exact component={BookmarkList} />
+      <Route path="/bookmarks/:id" exact component={BookmarkShow} />
+    </Switch>
+  </BrowserRouter>
+);
 
 export default App;

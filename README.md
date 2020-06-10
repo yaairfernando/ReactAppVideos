@@ -1,68 +1,279 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<<<<<<< HEAD
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield2]][linkedin-url2]
+[![Hireable][hireable]][hireable-url]
 
-## Available Scripts
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+ <h2 align="center"> Youtube API with React </h2>
 
-In the project directory, you can run:
+  <p align="center">
+    React application that implements an application making use of Youtube API to display, filter and search for videos
+    <br />
+    <a href="https://github.com/YairFernando67/ReactAppVideos"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/YairFernando67/ReactAppVideos">View Demo</a>
+    ·
+    <a href="https://github.com/YairFernando67/ReactAppVideos/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/YairFernando67/ReactAppVideos/issues">Request Feature</a>
+  </p>
 
-### `yarn start`
+</p>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Live version [YOUTUBE-API](https://videos-ytb.herokuapp.com/)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Table of Contents
 
-### `yarn test`
+- [About the Project](#about-the-project)
+  - [Built With](#built-with)
+- [Required Installations](#Required-Installations)
+  - [Installing](#Installing)
+  - [Instructions](#Instructions)
+- [Contact](#contact)
+- [Contributing](#Contributing)
+- [Show your support](#Show-your-support)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## About The Project
 
-### `yarn build`
+![Screenshot Gif](public/intro.gif)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Built With
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The project was developed using the following technologies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [React](https://es.reactjs.org/)
+- [JSX](https://reactjs.org/docs/introducing-jsx.html)
+- [Styled-Components](https://www.styled-components.com/)
+- [Axios](https://github.com/axios/axios)
+- [Redux](https://github.com/reduxjs/redux)
+- [React-Redux](https://github.com/reduxjs/react-redux)
+- [Redux-thunk](https://github.com/reduxjs/redux-thunk)
+- [React-Router-Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
 
-### `yarn eject`
+## Required Installations
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Installing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p>Install the following to get this project running in your machine:</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Instructions
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<p>Follow these steps:</p>
 
-## Learn More
+Clone the Repository
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```Shell
+user@pc:~$ git clone https://github.com/YairFernando67/ReactAppVideos
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Click on the console and to go to the folder that was created
 
-### Code Splitting
+```Shell
+user@pc:~$ cd ReactAppVideos
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
+user@pc:~$ npm install or yarn
+```
 
-### Analyzing the Bundle Size
+```
+user@pc:~$ npm run start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Open your browser on [http://localhost:3000](http://localhost:3000)
 
-### Making a Progressive Web App
+To run the tests
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+```
+user@pc:~$ npm run test
+```
 
-### Advanced Configuration
+## Contact
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+👤 **Yair Fernando Facio**
 
-### Deployment
+<a href="https://yairfernando67.github.io/Portfolio/" target="_blank">
+    
+  ![Screenshot Image](public/logo.jpg)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+</a>
 
-### `yarn build` fails to minify
+- Github: [@YairFernando67](https://github.com/YairFernando67)
+- Twitter: [@YairFernando18](https://twitter.com/YairFernando18)
+- Linkedin: [softwaredeveloperyairfacio](https://www.linkedin.com/in/softwaredeveloperyairfacio/)
+- Email: [yair.facio11@gmail.com](https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=yair.facio11@gmail.com)
+- Portfolio: [softwaredeveloper](https://yairfernando67.github.io/Portfolio/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<p align="center">
+
+Project Link: [https://github.com/YairFernando67/ReactAppVideos](https://github.com/YairFernando67/ReactAppVideos)
+
+</p>
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/YairFernando67/ReactAppVideos/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/YairFernando67/ReactAppVideos.svg?style=flat-square
+[contributors-url]: https://github.com/YairFernando67/ReactAppVideos/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/YairFernando67/ReactAppVideos.svg?style=flat-square
+[forks-url]: https://github.com/YairFernando67/ReactAppVideos/network/members
+[stars-shield]: https://img.shields.io/github/stars/YairFernando67/ReactAppVideos.svg?style=flat-square
+[stars-url]: https://github.com/YairFernando67/ReactAppVideos/stargazers
+[issues-shield]: https://img.shields.io/github/issues/YairFernando67/ReactAppVideos.svg?style=flat-square
+[issues-url]: https://github.com/YairFernando67/ReactAppVideos/issues
+[license-shield]: https://img.shields.io/github/license/YairFernando67/ReactAppVideos.svg?style=flat-square
+[license-url]: https://github.com/YairFernando67/ReactAppVideos/blob/master/LICENSE.txt
+[linkedin-shield2]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url2]: https://www.linkedin.com/in/softwaredeveloperyairfacio/
+[hireable]: https://cdn.rawgit.com/hiendv/hireable/master/styles/flat/yes.svg
+[hireable-url]: https://www.linkedin.com/in/softwaredeveloperyairfacio/
+=======
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield2]][linkedin-url2]
+[![Hireable][hireable]][hireable-url]
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+ <h2 align="center"> Youtube API with React </h2>
+
+  <p align="center">
+    React application that implements an application making use of Youtube API to display, filter and search for videos
+    <br />
+    <a href="https://github.com/YairFernando67/ReactAppVideos"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/YairFernando67/ReactAppVideos">View Demo</a>
+    ·
+    <a href="https://github.com/YairFernando67/ReactAppVideos/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/YairFernando67/ReactAppVideos/issues">Request Feature</a>
+  </p>
+
+</p>
+
+### Live version [YOUTUBE-API](https://videos-ytb.herokuapp.com/)
+
+## Table of Contents
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Required Installations](#Required-Installations)
+  * [Installing](#Installing)
+  * [Instructions](#Instructions)
+* [Contact](#contact)
+* [Contributing](#Contributing)
+* [Show your support](#Show-your-support)
+
+## About The Project
+
+![Screenshot Gif](public/intro.gif) 
+
+### Built With
+The project was developed using the following technologies:
+- [React](https://es.reactjs.org/)
+- [JSX](https://reactjs.org/docs/introducing-jsx.html)
+- [Styled-Components](https://www.styled-components.com/)
+- [Axios](https://github.com/axios/axios)
+- [Redux](https://github.com/reduxjs/redux)
+- [React-Redux](https://github.com/reduxjs/react-redux)
+- [Redux-thunk](https://github.com/reduxjs/redux-thunk)
+- [React-Router-Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
+
+## Required Installations
+
+### Installing
+
+<p>Install the following to get this project running in your machine:</p>
+
+### Instructions
+
+<p>Follow these steps:</p>
+
+Clone the Repository
+
+```Shell
+user@pc:~$ git clone https://github.com/YairFernando67/ReactAppVideos
+```
+
+Click on the console and to go to the folder that was created
+
+```Shell
+user@pc:~$ cd ReactAppVideos
+```
+
+```
+user@pc:~$ npm install or yarn
+```
+
+```
+user@pc:~$ npm run start
+```
+
+Open your browser on [http://localhost:3000](http://localhost:3000)
+
+## Contact
+
+👤 **Yair Fernando Facio**
+
+<a href="https://yairfernando67.github.io/Portfolio/" target="_blank">
+    
+  ![Screenshot Image](public/logo.jpg) 
+
+</a>
+
+- Github: [@YairFernando67](https://github.com/YairFernando67)
+- Twitter: [@YairFernando18](https://twitter.com/YairFernando18)
+- Linkedin: [softwaredeveloperyairfacio](https://www.linkedin.com/in/softwaredeveloperyairfacio/)
+- Email: [yair.facio11@gmail.com](https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=yair.facio11@gmail.com)
+- Portfolio: [softwaredeveloper](https://yairfernando67.github.io/Portfolio/)
+
+<p align="center">
+
+  Project Link: [https://github.com/YairFernando67/ReactAppVideos](https://github.com/YairFernando67/ReactAppVideos)
+
+</p>
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/YairFernando67/ReactAppVideos/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[contributors-shield]: https://img.shields.io/github/contributors/YairFernando67/ReactAppVideos.svg?style=flat-square
+[contributors-url]: https://github.com/YairFernando67/ReactAppVideos/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/YairFernando67/ReactAppVideos.svg?style=flat-square
+[forks-url]: https://github.com/YairFernando67/ReactAppVideos/network/members
+[stars-shield]: https://img.shields.io/github/stars/YairFernando67/ReactAppVideos.svg?style=flat-square
+[stars-url]: https://github.com/YairFernando67/ReactAppVideos/stargazers
+[issues-shield]: https://img.shields.io/github/issues/YairFernando67/ReactAppVideos.svg?style=flat-square
+[issues-url]: https://github.com/YairFernando67/ReactAppVideos/issues
+[license-shield]: https://img.shields.io/github/license/YairFernando67/ReactAppVideos.svg?style=flat-square
+[license-url]: https://github.com/YairFernando67/ReactAppVideos/blob/master/LICENSE.txt
+[linkedin-shield2]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url2]: https://www.linkedin.com/in/softwaredeveloperyairfacio/
+[hireable]: https://cdn.rawgit.com/hiendv/hireable/master/styles/flat/yes.svg
+[hireable-url]: https://www.linkedin.com/in/softwaredeveloperyairfacio/
+>>>>>>> feature/tests
