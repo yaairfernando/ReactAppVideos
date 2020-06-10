@@ -11,7 +11,7 @@ const SearchBar = ({ fetchVideos, search, setSearchValue }) => {
   };
 
   return (
-    <form onSubmit={e => onSubmit(e)} className={classes.Form}>
+    <form onSubmit={e => onSubmit(e)} className={classes.Form} data-test="form">
       <input
         type="text"
         id="search-bar-input"

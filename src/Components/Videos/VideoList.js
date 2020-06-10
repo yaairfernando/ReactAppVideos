@@ -30,7 +30,7 @@ const VideoList = ({
     <>
       <SearchBar />
       <FormFilter />
-      <div className={`video-list-content ${classes.VideoList}`}>
+      <div className={`video-list-content ${classes.VideoList}`} data-test="videoList">
         {renderContent()}
       </div>
     </>
