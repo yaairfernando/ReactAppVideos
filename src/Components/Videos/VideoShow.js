@@ -27,7 +27,7 @@ VideoShow.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  video: state.videos,
+  video: state.videos.data,
 });
 
 export default connect(mapStateToProps, { fetchVideo })(VideoShow);

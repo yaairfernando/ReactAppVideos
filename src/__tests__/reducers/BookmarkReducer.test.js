@@ -8,6 +8,7 @@ const INITIAL_STATE = {
   },
 };
 
+
 const RESULT = {
   1: { bookmarkId: '1', title: 'Video 1', description: 'This is a description' },
   2: { title: 'Video 2', description: 'This is a cool video', bookmarkId: '2' },
