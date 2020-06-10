@@ -49,7 +49,7 @@ export const fetchVideos = input => async dispatch => {
   );
 
   const { data } = response;
-
+  console.log("fetch");
   if (data.items) {
     dispatch({
       type: FETCH_VIDEOS,
