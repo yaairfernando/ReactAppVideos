@@ -1,33 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Filter from '../Videos/Filter';
-import classes from '../Styles/Styles.module.css';
-import { deleteBookmark } from '../../actions';
+import { useHistory } from 'react-router-dom';
+import ShowVideo from '../Modals/ShowVideo';
 
-const BookmarkShow = ({ bookmarks, deleteBookmark }) => {
-  const onDeleteBK = ({ bookmarkId }) => {
-    deleteBookmark(bookmarkId);
-  };
+const BookmarkShow = ({ match, videos }) => {
+  const history = useHistory();
 
-  const renderContent = () => bookmarks.map(
-    bookmark => <Filter key={bookmark.id.videoId} video={bookmark} onHandleBookmark={onDeleteBK} />,
-  );
+  const video = videos.filter(f => f.id.videoId === match.params.id);
+
+  if (!video) {
+    return null;
+  }
 
   return (
-    <>
-      <div className={classes.BookmarkShow}>{renderContent()}</div>
-    </>
+    <ShowVideo
+      onDismiss={() => history.push('/bookmarks')}
+      video={video[0]}
+    />
   );
 };
 
 BookmarkShow.propTypes = {
-  bookmarks: PropTypes.arrayOf(PropTypes.object).isRequired,
-  deleteBookmark: PropTypes.func.isRequired,
+  videos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  match: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 const mapStateToProps = state => ({
-  bookmarks: Object.values(state.bookmarks),
+  videos: Object.values(state.bookmarks),
 });
 
-export default connect(mapStateToProps, { deleteBookmark })(BookmarkShow);
+export default connect(mapStateToProps)(BookmarkShow);

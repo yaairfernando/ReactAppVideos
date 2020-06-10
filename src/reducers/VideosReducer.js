@@ -4,14 +4,19 @@ import {
   FETCH_VIDEO,
 } from '../types';
 
-export default (state = [], action) => {
+const initialState = {
+  data: [],
+  search: null,
+};
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_VIDEOS:
-      return action.payload;
+      return { ...state, data: action.payload.data, search: action.payload.search };
     case FETCH_VIDEO:
-      return action.payload;
+      return { ...state, data: action.payload };
     case FILTER_VIDEOS:
-      return action.payload;
+      return { ...state, data: action.payload };
     default:
       return state;
   }

@@ -8,6 +8,10 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "check-prop-types": "^1.1.2",
+    "jest-puppeteer": "^4.4.0",
     "lodash": "^4.17.15",
     "prop-types": "15.5.10",
     "react": "^16.13.1",
@@ -18,9 +22,7 @@
     "react-uuid": "^1.0.2",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.3.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -52,9 +54,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.1",
-    "fetch-mock": "^9.10.1",
-    "jest": "^26.0.1",
     "jest-enzyme": "^7.1.2",
-    "redux-mock-store": "^1.5.4"
+    "moxios": "^0.4.0"
   }
 }

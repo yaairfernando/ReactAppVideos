@@ -1,3 +1,4 @@
+import axios from 'axios';
 import uuid from 'react-uuid';
 import {
   FETCH_VIDEOS,
@@ -5,9 +6,7 @@ import {
   FETCH_VIDEO,
   BOOKMARK,
   DELETE_BOOKMARK,
-  SEARCH_VALUE,
 } from '../types';
-import youtube from '../api/youtube';
 
 const KEY = process.env.REACT_APP_KEY;
 const history = [];
@@ -36,28 +35,31 @@ const sortVideos = (videos, order) => videos.sort((a, b) => {
 });
 
 export const fetchVideos = input => async dispatch => {
-  const response = await youtube.get('/search', {
-    params: {
-      q: input || 'kids',
-      part: 'snippet',
-      type: 'video',
-      maxResults: 50,
-      key: KEY,
+  const response = await axios.get(
+    'https://www.googleapis.com/youtube/v3/search',
+    {
+      params: {
+        q: input || 'kids',
+        part: 'snippet',
+        type: 'video',
+        maxResults: 50,
+        key: KEY,
+      },
     },
-  });
+  );
 
   const { data } = response;
 
   if (data.items) {
     dispatch({
       type: FETCH_VIDEOS,
-      payload: data.items,
+      payload: { data: data.items, search: input || null },
     });
   }
 };
 
 export const filterVideos = values => (dispatch, getState) => {
-  history.push(getState().videos);
+  history.push(getState().videos.data);
 
   if (values.count !== '' && values.date !== '') {
     filterCount(values);
@@ -79,13 +81,13 @@ export const filterVideos = values => (dispatch, getState) => {
 
   dispatch({
     type: FILTER_VIDEOS,
-    payload: sortedVideos ? [...sortedVideos] : getState().videos,
+    payload: sortedVideos ? [...sortedVideos] : getState().videos.data,
   });
 };
 
 export const fetchVideo = id => (dispatch, getState) => {
   const { videos } = getState();
-  const video = videos.filter(f => f.id.videoId === id);
+  const video = videos.data.filter(f => f.id.videoId === id);
   dispatch({
     type: FETCH_VIDEO,
     payload: video,
@@ -106,5 +108,3 @@ export const deleteBookmark = bookmarkId => ({
   type: DELETE_BOOKMARK,
   payload: bookmarkId,
 });
-
-export const setSearchValue = value => ({ type: SEARCH_VALUE, payload: value });

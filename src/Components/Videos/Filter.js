@@ -1,25 +1,19 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classes from '../Styles/Styles.module.css';
 import Icon from '../Icon/Icon';
 
-const Filter = ({ video, onHandleBookmark }) => {
-  const history = useHistory();
+const Filter = ({ video, onHandleBookmark, onHandleShow }) => {
   const { title, thumbnails, description } = video.snippet;
 
-  const onHandleClick = ({ id }) => {
-    history.push(`/video/${id.videoId}`);
-  };
-
   return (
-    <div className={classes.VideoItem}>
-      <div className={classes.Card}>
+    <div className={classes.VideoItem} data-test="videoItem">
+      <div className={classes.Card} data-test="card">
         <button
           type="button"
           className={classes.DivImage}
-          onClick={() => onHandleClick(video)}
-          onKeyDown={() => onHandleClick(video)}
+          onClick={() => onHandleShow(video.id.videoId)}
+          onKeyDown={() => onHandleShow(video.id.videoId)}
         >
           <img src={thumbnails.medium.url} className={classes.Image} alt="Video Cover" />
         </button>
@@ -46,6 +40,7 @@ const Filter = ({ video, onHandleBookmark }) => {
 
 Filter.propTypes = {
   onHandleBookmark: PropTypes.func.isRequired,
+  onHandleShow: PropTypes.func.isRequired,
   video: PropTypes.objectOf(PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.instanceOf(Object),
