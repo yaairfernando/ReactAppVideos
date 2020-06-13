@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Filter from "../Videos/Filter";
+import VideoItem from "../Videos/VideoItem";
 import classes from "../Styles/Styles.module.css";
 import { deleteBookmark } from "../../actions";
 import history from "../../history";
@@ -18,7 +18,7 @@ const BookmarkList = ({ bookmarks, deleteBookmark }) => {
   const renderContent = () => {
     console.log("BOOKMARKS COMPONENT");
     return bookmarks.map((bookmark) => (
-      <Filter
+      <VideoItem
         key={bookmark.id.videoId}
         video={bookmark}
         onHandleBookmark={onDeleteBK}

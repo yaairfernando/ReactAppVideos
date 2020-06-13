@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Filter from "./Filter";
+import VideoItem from "./VideoItem";
 import classes from "../Styles/Styles.module.css";
 import { bookmark } from "../../actions";
 import history from "../../history";
@@ -17,7 +17,7 @@ const VideoList = ({ videos, bookmark }) => {
 
   const renderContent = () =>
     videos.map((video) => (
-      <Filter
+      <VideoItem
         key={video.id.videoId}
         video={video}
         onHandleBookmark={addBookmark}
