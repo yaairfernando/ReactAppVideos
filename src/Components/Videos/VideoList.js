@@ -1,47 +1,38 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
-import Filter from './Filter';
-import classes from '../Styles/Styles.module.css';
-import SearchBar from './SearchBar';
-import FormFilter from './FormFilter';
-import { fetchVideos, bookmark } from '../../actions';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import Filter from "./Filter";
+import classes from "../Styles/Styles.module.css";
+import { bookmark } from "../../actions";
+import history from "../../history";
 
-const VideoList = ({
-  videos, fetchVideos, bookmark, search,
-}) => {
-  const history = useHistory();
-
-  useEffect(() => {
-    fetchVideos(search);
-  }, [fetchVideos, search]);
-
-  const addBookmark = video => {
+const VideoList = ({ videos, bookmark }) => {
+  const addBookmark = (video) => {
     bookmark(video);
   };
 
-  const showVideo = id => {
+  const showVideo = (id) => {
     history.push(`/videos/${id}`);
   };
 
-  const renderContent = () => videos.map(video => (
-    <Filter
-      key={video.id.videoId}
-      video={video}
-      onHandleBookmark={addBookmark}
-      onHandleShow={showVideo}
-    />
-  ));
+  const renderContent = () =>
+    videos.map((video) => (
+      <Filter
+        key={video.id.videoId}
+        video={video}
+        onHandleBookmark={addBookmark}
+        onHandleShow={showVideo}
+      />
+    ));
 
+  console.log("VIDEO LIST COMPONENT");
   return (
-    <>
-      <SearchBar />
-      <FormFilter />
-      <div className={`video-list-content ${classes.VideoList}`} data-test="videoList">
-        {renderContent()}
-      </div>
-    </>
+    <div
+      className={`video-list-content ${classes.VideoList}`}
+      data-test="videoList"
+    >
+      {renderContent()}
+    </div>
   );
 };
 
@@ -51,14 +42,13 @@ VideoList.defaultProps = {
 
 VideoList.propTypes = {
   videos: PropTypes.arrayOf(PropTypes.object).isRequired,
-  fetchVideos: PropTypes.func.isRequired,
   bookmark: PropTypes.func.isRequired,
   search: PropTypes.string,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   videos: state.videos.data,
   search: state.videos.search,
 });
 
-export default connect(mapStateToProps, { fetchVideos, bookmark })(VideoList);
+export default connect(mapStateToProps, { bookmark })(VideoList);
