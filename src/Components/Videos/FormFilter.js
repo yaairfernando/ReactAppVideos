@@ -16,7 +16,7 @@ const FormFilter = ({ filterVideos }) => {
   };
 
   return (
-    <form onSubmit={e => onSubmit(e)} className={classes.FilterForm}>
+    <form onSubmit={e => onSubmit(e)} className={`formFilter ${classes.FilterForm}`}>
       <select name="count" onChange={e => setFilters({ ...filters, count: e.target.value })}>
         <option value="">Number of videos</option>
         {filterByCount.map(option => <option key={`select-${option}`} value={option}>{option}</option>)}

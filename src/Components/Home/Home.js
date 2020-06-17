@@ -7,7 +7,7 @@ const Home = ({ videos, fetchVideos }) => {
   useEffect(() => {
     console.log("HOME COMPONENT");
     fetchVideos();
-  }, [fetchVideos, videos]);
+  }, [fetchVideos]);
 
   return (
     <div>
