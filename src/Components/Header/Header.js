@@ -23,7 +23,7 @@ const Header = () => {
           Home :)
         </Link>
         <Link className={classes.Bookmark} to="/bookmarks">
-          Bookmarks
+          Bookmarks :)
         </Link>
       </div>
       <SearchBar />
