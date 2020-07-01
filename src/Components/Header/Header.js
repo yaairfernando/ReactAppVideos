@@ -20,7 +20,7 @@ const Header = () => {
     <>
       <div className={classes.Header}>
         <Link className={classes.Videos} to="/">
-          Home
+          Home :)
         </Link>
         <Link className={classes.Bookmark} to="/bookmarks">
           Bookmarks
