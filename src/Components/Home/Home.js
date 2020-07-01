@@ -3,7 +3,7 @@ import VideoList from "../Videos/VideoList";
 import { fetchVideos } from "../../actions";
 import { connect } from "react-redux";
 
-const Home = ({ videos, fetchVideos }) => {
+const Home = ({ fetchVideos }) => {
   useEffect(() => {
     console.log("HOME COMPONENT");
     fetchVideos();
@@ -16,10 +16,4 @@ const Home = ({ videos, fetchVideos }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    videos: state.videos,
-  };
-};
-
-export default connect(mapStateToProps, { fetchVideos })(Home);
+export default connect(null, { fetchVideos })(Home);
