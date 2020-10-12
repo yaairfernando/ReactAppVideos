@@ -2,9 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import classes from "../Styles/Styles.module.css";
 import Icon from "../Icon/Icon";
+import { connect } from "react-redux";
 
-const VideoItem = ({ video, onHandleBookmark, onHandleShow }) => {
+const VideoItem = ({ video, onHandleBookmark, onHandleShow, videos }) => {
   const { title, thumbnails, description } = video.snippet;
+
+  const isBookmarked = () =>
+    videos.some((v) => v.id.videoId === video.id.videoId);
+  console.log(isBookmarked());
 
   return (
     <div className={classes.VideoItem} data-test="videoItem">
@@ -35,7 +40,7 @@ const VideoItem = ({ video, onHandleBookmark, onHandleShow }) => {
           onClick={() => onHandleBookmark(video)}
           onKeyDown={() => onHandleBookmark(video)}
         >
-          <Icon name="icon-heart" />
+          <Icon name={isBookmarked() ? "icon-heart" : "icon-heart1"} />
         </button>
       </div>
     </div>
@@ -50,4 +55,10 @@ VideoItem.propTypes = {
   ).isRequired,
 };
 
-export default VideoItem;
+const mapStateToProps = (state) => {
+  return {
+    videos: Object.values(state.bookmarks),
+  };
+};
+
+export default connect(mapStateToProps)(VideoItem);

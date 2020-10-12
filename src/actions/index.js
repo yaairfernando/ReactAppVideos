@@ -106,14 +106,18 @@ export const fetchVideo = (id) => (dispatch, getState) => {
   });
 };
 
-export const bookmark = (video) => {
-  const id = uuid();
+export const bookmark = (video) => (dispatch, getState) => {
+  let bookmarks = getState().bookmarks;
+  let videos = Object.values(bookmarks);
   const bookmark = { ...video };
-  bookmark.bookmarkId = id;
-  return {
-    type: BOOKMARK,
-    payload: { id: bookmark },
-  };
+  if (!videos.some((video) => video.id.videoId === bookmark.id.videoId)) {
+    const id = uuid();
+    bookmark.bookmarkId = id;
+    dispatch({
+      type: BOOKMARK,
+      payload: { id: bookmark },
+    });
+  }
 };
 
 export const deleteBookmark = (bookmarkId) => ({
